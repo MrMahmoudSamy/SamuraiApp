@@ -12,8 +12,8 @@ namespace SamuraiApp.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer
-                ("Data Source=.\\MSSQLLocalDB;Initial catalog=SumraiAppData;user id=sa;password=Allahisthe1");
-            base.OnConfiguring(optionsBuilder); 
+                ("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=SumraiAppData;User ID=sa;password=Allahisthe1; Integrated security=true");
+            
         }
     }
 }

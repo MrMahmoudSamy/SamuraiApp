@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamuraiApp.Domain", "Samura
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamuraiApp.Data", "SamuraiApp.Data\SamuraiApp.Data.csproj", "{289241B9-51B2-44CF-951D-AE298B2D41FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamuraiApp.Console", "SamuraiApp.Console\SamuraiApp.Console.csproj", "{4803EC42-9204-4914-82DE-81A035F67A70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamuraiApp.ConsoleApp", "SamuraiApp.Console\SamuraiApp.ConsoleApp.csproj", "{4803EC42-9204-4914-82DE-81A035F67A70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
