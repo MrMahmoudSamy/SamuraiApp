@@ -10,7 +10,8 @@ namespace SamuraiApp.ConsoleApp
         private static SamuraiDbContext context = new SamuraiDbContext();
         static void Main(string[] args)
         {
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
+            //context.Database.EnsureDeleted();
             GetSamurais("Before Add:");
             AddSamurai();
             GetSamurais("After Add:");

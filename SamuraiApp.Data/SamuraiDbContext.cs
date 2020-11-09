@@ -15,5 +15,6 @@ namespace SamuraiApp.Data
                 ("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=SumraiAppData;User ID=sa;password=Allahisthe1; Integrated security=true");
             
         }
+        
     }
 }
