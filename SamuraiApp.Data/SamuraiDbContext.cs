@@ -15,6 +15,9 @@ namespace SamuraiApp.Data
                 ("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=SumraiAppData;User ID=sa;password=Allahisthe1; Integrated security=true");
             
         }
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SamuraiBattle>().HasKey(s => new { s.SamuraiId, s.BattleId });
+        }
     }
 }
