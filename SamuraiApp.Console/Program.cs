@@ -1,4 +1,5 @@
-﻿using SamuraiApp.Data;
+﻿
+using SamuraiApp.Data;
 using SamuraiApp.Domain;
 using System;
 using System.Linq;
