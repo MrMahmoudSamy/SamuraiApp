@@ -15,9 +15,10 @@ namespace SamuraiApp.ConsoleApp
             //context.Database.EnsureCreated();
             //context.Database.EnsureDeleted();
             //GetSamurais("Before Add:");
-            AddSamuraiWitnQutes();
-            AddQuteWithNoTracked(4);
+            //AddSamuraiWitnQutes();
+            //AddQuteWithNoTracked(4);
             //GetSamurais("After Add:");
+            ExplictLoadQuery();
             Console.Write("Press any key....");
             Console.ReadKey();
         }
@@ -55,6 +56,13 @@ namespace SamuraiApp.ConsoleApp
                 newcontext.SaveChanges();
             }
         }
+        private static void ExplictLoadQuery()
+        {
+            var samurai = context.Samurais.FirstOrDefault(s => s.SamuraiName.Contains("Mahmoud"));
+            context.Entry(samurai).Collection(s => s.Quotes).Load();
+            context.Entry(samurai).Reference(s => s.Horse).Load();
+        }
+
         private static void GetSamurais(string text)
         {
             var Samurais = context.Samurais.ToList();
