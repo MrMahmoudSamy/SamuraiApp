@@ -56,6 +56,24 @@ namespace SamuraiApp.ConsoleApp
                 newcontext.SaveChanges();
             }
         }
+        private static void JoinBattelandSamurai()
+        {
+            var sbjoin = new SamuraiBattle { BattleId = 1, SamuraiId = 4 };
+            context.Add(sbjoin);
+            context.SaveChanges();
+        }
+        private static void EnlistSamuraiIntoBattel()
+        {
+            var battle = context.Battles.Find(1);
+            battle.SamuraiBattles.Add(new SamuraiBattle { SamuraiId = 7 });
+            context.SaveChanges();
+        }
+        private static void RemovejoinBetweensamuraiAndBattle()
+        {
+            var join = new SamuraiBattle { BattleId = 1, SamuraiId = 4 };
+            context.Remove(join);
+            context.SaveChanges();
+        }
         private static void ExplictLoadQuery()
         {
             var samurai = context.Samurais.FirstOrDefault(s => s.SamuraiName.Contains("Mahmoud"));
