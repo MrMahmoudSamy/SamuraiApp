@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using SamuraiApp.Data;
 using SamuraiApp.Domain;
 using System;
@@ -73,6 +74,20 @@ namespace SamuraiApp.ConsoleApp
             var join = new SamuraiBattle { BattleId = 1, SamuraiId = 4 };
             context.Remove(join);
             context.SaveChanges();
+        }
+        private static void GetsamuraiWithBattle()
+        {
+            var samuraybattle = context.Samurais
+                .Include(s => s.SamuraiBattles)
+                .ThenInclude(sb => sb.Battle)
+                .FirstOrDefault(sam => sam.SamuraiId == 4);
+
+            var samuraibattlecleaner = context.Samurais.Where(s => s.SamuraiId == 4)
+                .Select(s => new
+                {
+                    Samurai = s,
+                    Battle = s.SamuraiBattles.Select(sb => sb.Battle)
+                }).FirstOrDefault();
         }
         private static void ExplictLoadQuery()
         {
