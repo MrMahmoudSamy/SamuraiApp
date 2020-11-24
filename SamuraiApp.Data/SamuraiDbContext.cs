@@ -25,7 +25,9 @@ namespace SamuraiApp.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer
+            optionsBuilder
+                .UseLoggerFactory(ConsoleLoggerFactory).EnableSensitiveDataLogging()
+                .UseSqlServer
                 ("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=SumraiAppData;User ID=sa;password=Allahisthe1; Integrated security=true");
 
         }
