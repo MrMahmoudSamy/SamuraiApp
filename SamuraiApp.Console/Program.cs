@@ -89,6 +89,31 @@ namespace SamuraiApp.ConsoleApp
                     Battle = s.SamuraiBattles.Select(sb => sb.Battle)
                 }).FirstOrDefault();
         }
+        private static void AddNewHorseToSamuraiObject()
+        {
+            var samurai = context.Samurais.Find(4);
+            samurai.Horse = new Horse { HourseName = "Black Beauty" };
+            context.SaveChanges();
+        }
+        private static void AddNewHorseToSamuraiId()
+        {
+            
+            var Horse = new Horse { HourseName = "Black Beauty",SamuraiId=4 };
+            context.Add(Horse);
+            context.SaveChanges();
+        }
+        private static void AddNewHorseToDisconectedSamuraiObject()
+        {
+            var samurai = context.Samurais.AsNoTracking().FirstOrDefault(s => s.SamuraiId == 4);
+
+            samurai.Horse = new Horse { HourseName = "Mr. Eid" };
+            using(var newContext=new SamuraiDbContext())
+            {
+                newContext.Attach(samurai);
+                newContext.SaveChanges();
+            }
+            
+        }
         private static void ExplictLoadQuery()
         {
             var samurai = context.Samurais.FirstOrDefault(s => s.SamuraiName.Contains("Mahmoud"));
